@@ -1,3 +1,5 @@
+import swal from "sweetalert";
+
 const AddCoffee = () => {
   const handleAddCoffee = (event) => {
     event.preventDefault();
@@ -18,7 +20,19 @@ const AddCoffee = () => {
       details,
       photourl,
     };
-    console.log(newCoffee);
+    fetch("http://localhost:5000/coffee", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newCoffee),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data?.insertedId) {
+          swal("Success!", "User Updated Successfully!", "success");
+        }
+      });
   };
   return (
     <div>

@@ -35,6 +35,7 @@ async function run() {
             const newCoffee = req.body;
             const result = await coffeeCollection.insertOne(newCoffee);
             res.send(result);
+            console.log("hello");
         })
     } finally {
 
