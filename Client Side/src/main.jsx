@@ -2,8 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
-import { Router, RouterProvider, createBrowserRouter } from "react-router-dom";
-import Nav from "./Nav.jsx";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import AddCoffee from "./AddCoffee.jsx";
+import UpdateCoffee from "./UpdateCoffee.jsx";
+import Home from "./Home.jsx";
 
 const router = createBrowserRouter([
   {
@@ -12,7 +14,15 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Nav></Nav>,
+        element: <Home></Home>,
+      },
+      {
+        path: "/addCoffee",
+        element: <AddCoffee></AddCoffee>,
+      },
+      {
+        path: "/updateCoffee",
+        element: <UpdateCoffee></UpdateCoffee>,
       },
     ],
   },
